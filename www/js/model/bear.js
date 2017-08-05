@@ -45,7 +45,8 @@ export default class Bear extends MainModel {
         sprite.interactive = true;
         sprite.buttonMode = true;
 
-        sprite.on('pointerdown', () => {
+        // sprite.on('pointerdown', () => {
+        sprite.on('touchstart', () => {
             sprite.gotoAndPlay(0);
             // model.showHearts();
 

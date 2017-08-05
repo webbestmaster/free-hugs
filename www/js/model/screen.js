@@ -16,13 +16,17 @@ export default class Screen extends MainModel {
         screen.bindEventListeners();
     }
 
+    onResize() {
+        const screen = this;
+
+        screen.set(getSize());
+        screen.trigger('resize');
+    }
+
     bindEventListeners() {
         const screen = this;
 
-        window.addEventListener('resize', () => {
-            screen.set(getSize());
-            screen.trigger('resize');
-        }, false);
+        window.addEventListener('resize', () => screen.onResize(), false);
     }
 }
 

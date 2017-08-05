@@ -44,9 +44,7 @@ PIXI.loader
 
         screen.onChange('resize', onScreenResize);
 
-
         pixiApp.ticker.add(delta => {
-
 
         });
     });
