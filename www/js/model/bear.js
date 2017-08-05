@@ -1,8 +1,6 @@
 const MainModel = require('./../lib/main-model');
 const PIXI = require('pixi.js');
 
-// import Heart from './heart';
-
 export default class Bear extends MainModel {
     constructor() {
         super();
@@ -27,7 +25,7 @@ export default class Bear extends MainModel {
         const textures = [];
 
         for (let ii = 0; ii <= 75; ii += 1) {
-            textures.push(PIXI.Texture.fromImage(`./assets/hug-${ii}.png`));
+            textures.push(PIXI.Texture.fromImage(`hug-${ii}`));
         }
 
         const sprite = new PIXI.extras.AnimatedSprite(textures);

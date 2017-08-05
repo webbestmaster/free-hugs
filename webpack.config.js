@@ -81,7 +81,7 @@ const webpackConfig = {
                 loader: 'json-loader'
             },
             {
-                test: /\.(png|jpg|jpeg|gif|svg)$/,
+                test: /\.(jpg|jpeg|gif|svg)$/, // png remove for base64 image loader
                 loader: 'file-loader?name=img/img-[name]-[hash:6].[ext]'
             },
             {

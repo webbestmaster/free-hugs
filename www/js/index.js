@@ -1,7 +1,7 @@
 import Screen from './model/screen';
 import Bear from './model/bear';
 import {countTo} from './lib/util';
-import imageToBase64 from './lib/image-to-base64';
+
 const PIXI = require('pixi.js');
 
 // init helpers
@@ -13,22 +13,11 @@ const pixiApp = new PIXI.Application(screen.get('width'), screen.get('height'), 
 });
 
 document.body.appendChild(pixiApp.view);
-// add bear
 
-// const frames = countTo(75, ii => `./assets/hug-${ii}.png`);
-
-let chainPromise = Promise.resolve();
-
-const frames = countTo(75, ii => {
-    chainPromise = chainPromise.then(() => {
-        console.log(`./assets/hug-${ii}.png`);
-        return imageToBase64(`./assets/hug-${ii}.png`);
-    });
-});
-
+countTo(75, ii => PIXI.loader.add(`hug-${ii}`, require(`base64-image-loader!./../base64/hug-${ii}.png`)));
+PIXI.loader.add('free-hugs-title', require('base64-image-loader!./../base64/free-hugs-title.png'));
 
 PIXI.loader
-// .add(frames)
     .load(() => {
         const bear = new Bear();
         const bearSprite = bear.get('sprite');
@@ -52,4 +41,3 @@ PIXI.loader
 
         });
     });
-
