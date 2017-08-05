@@ -1,5 +1,6 @@
 import Screen from './model/screen';
 import Bear from './model/bear';
+import Title from './model/title';
 import {countTo} from './lib/util';
 
 const PIXI = require('pixi.js');
@@ -19,16 +20,24 @@ PIXI.loader.add('free-hugs-title', require('base64-image-loader!./../base64/free
 
 PIXI.loader
     .load(() => {
+        const title = new Title();
+        const titleSprite = title.get('sprite');
+
+        pixiApp.stage.addChild(titleSprite);
+
         const bear = new Bear();
         const bearSprite = bear.get('sprite');
 
         pixiApp.stage.addChild(bearSprite);
 
+
         function onScreenResize() {
-            const {width, height} = screen.getAllAttributes();
+            const {halfWidth, halfHeight, width, height} = screen.getAllAttributes();
 
             pixiApp.renderer.resize(width, height);
-            bearSprite.position.set(Math.round(width / 2), Math.round(height / 2));
+
+            bearSprite.position.set(halfWidth, halfHeight);
+            titleSprite.position.set(halfWidth, halfHeight - 180); // 180 ~ height of bear
         }
 
         onScreenResize();

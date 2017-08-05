@@ -28,9 +28,13 @@ export default class Screen extends MainModel {
 
 export function getSize() {
     const docElem = document.documentElement;
+    const width = docElem.clientWidth;
+    const height = docElem.clientHeight;
 
     return {
-        width: docElem.clientWidth,
-        height: docElem.clientHeight
+        width,
+        height,
+        halfWidth: width / 2,
+        halfHeight: height / 2
     };
 }
