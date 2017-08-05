@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/webbestmaster/canned-fish-front#readme",
   "dependencies": {
-    "gsap": "^1.20.2",
     "pixi.js": "^4.5.2"
   },
   "devDependencies": {
