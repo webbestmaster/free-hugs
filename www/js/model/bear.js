@@ -32,7 +32,7 @@ export default class Bear extends MainModel {
 
         sprite.loop = false;
         sprite.animationSpeed = 0.5;
-        sprite.anchor.set(0.5, 0.5);
+        sprite.anchor.set(0.5, 0);
         // hug sprite - end
 
         model.set({sprite});
@@ -45,8 +45,7 @@ export default class Bear extends MainModel {
         sprite.interactive = true;
         sprite.buttonMode = true;
 
-        // sprite.on('pointerdown', () => {
-        sprite.on('touchstart', () => {
+        sprite.on('pointerdown', () => {
             sprite.gotoAndPlay(0);
             // model.showHearts();
 
@@ -57,32 +56,32 @@ export default class Bear extends MainModel {
         });
     }
 
-/*
-    initHearts() {
-        const model = this;
-        const sprite = model.get('sprite');
-        const hearts = [];
-        const heartsNumber = 32; // my wife is 32
+    /*
+        initHearts() {
+            const model = this;
+            const sprite = model.get('sprite');
+            const hearts = [];
+            const heartsNumber = 32; // my wife is 32
 
-        for (let ii = 0; ii < heartsNumber; ii += 1) {
-            const heart = new Heart();
-            const heartSprite = heart.get('sprite');
+            for (let ii = 0; ii < heartsNumber; ii += 1) {
+                const heart = new Heart();
+                const heartSprite = heart.get('sprite');
 
-            heartSprite.renderable = false;
-            sprite.addChild(heartSprite);
-            hearts.push(heart);
+                heartSprite.renderable = false;
+                sprite.addChild(heartSprite);
+                hearts.push(heart);
+            }
+
+            model.set({hearts});
         }
+    */
 
-        model.set({hearts});
-    }
-*/
+    /*
+        showHearts() {
+            const model = this;
+            const hearts = model.get('hearts');
 
-/*
-    showHearts() {
-        const model = this;
-        const hearts = model.get('hearts');
-
-        hearts.forEach(heart => heart.animate());
-    }
-*/
+            hearts.forEach(heart => heart.animate());
+        }
+    */
 }

@@ -37,14 +37,16 @@ PIXI.loader
             pixiApp.renderer.resize(width, height);
 
             bearSprite.position.set(halfWidth, halfHeight);
-            titleSprite.position.set(halfWidth, halfHeight - 180); // 180 ~ height of bear
+            titleSprite.position.set(halfWidth, halfHeight);
         }
 
         onScreenResize();
 
         screen.onChange('resize', onScreenResize);
 
+        /*
         pixiApp.ticker.add(delta => {
 
         });
+        */
     });

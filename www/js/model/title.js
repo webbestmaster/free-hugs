@@ -20,7 +20,7 @@ export default class Title extends MainModel {
         const model = this;
         const sprite = PIXI.Sprite.fromImage('free-hugs-title');
 
-        sprite.anchor.set(0.5, 0.5);
+        sprite.anchor.set(0.5, 1);
         model.set({sprite});
     }
 }
